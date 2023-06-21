@@ -21,7 +21,7 @@ eProject documentation at https://github.com/QuangNhat1996/E-project/tree/develo
 
 ============================
 
-eProject published at https://viet0712.github.io/E-project/
+eProject published at https://quangnhat1996.github.io/E-project/index.html
 
 ============================
 
