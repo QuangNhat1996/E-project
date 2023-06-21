@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" type="text/css" href="css/style-index.css" />
+  <script type="text/javascript" src="js/scripts.js"></script>
+  <script src="js/angular.min.js"></script>
+  <script src="js/angular-route.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<style>
+  .navbar {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+  }
+
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .navbar-logo {
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .navbar-toggle {
+    display: none;
+    cursor: pointer;
+  }
+
+  .navbar-toggle-icon {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: #333;
+    margin: 5px;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .navbar-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbar-item {
+    position: relative;
+  }
+
+  .navbar-link {
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 1rem;
+    transition: color 0.2s ease-in-out;
+  }
+
+  .sub-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .sub-menu-item {
+    margin: 0;
+  }
+
+  .sub-menu-link {
+    color: #333;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.5rem 1rem;
+    display: block;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  .navbar-item:hover .sub-menu {
+    display: block;
+  }
+
+  .navbar-link:hover,
+  .sub-menu-link:hover {
+    color: #007bff;
+  }
+
+  @media (max-width: 991px) {
+    .navbar-container {
+      height: auto;
+    }
+
+    .navbar-toggle {
+      display: block;
+    }
+
+    .navbar-menu {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-item {
+      width: 100%;
+    }
+
+    .navbar-link {
+      display: block;
+      padding: 1rem;
+      border-bottom: 1px solid #f2f2f2;
+    }
+
+    .sub-menu {
+      top: 0;
+      left: 100%;
+      width: 100%;
+      box-shadow: none;
+      margin: 0;
+    }
+
+    .sub-menu-link {
+      font-size: 1rem;
+      padding: 0.5rem 2rem;
+      border-bottom: 1px solid #f2f2f2;
+    }
+
+    .navbar-toggle.active .navbar-toggle-icon:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .navbar-toggle.active .navbar-toggle-icon:nth-child(2) {
+      opacity: 0;
+    }
+
+    .navbar-toggle.active .navbar-toggle-icon:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    .navbar-toggle.active+.navbar-menu {
+      display: flex;
+    }
+  }
+
+  .footer {
+    background-color: #333;
+    color: #fff;
+    padding: 2rem 0;
+  }
+
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .footer-col {
+    width: calc(100% / 3);
+    margin-bottom: 2rem;
+  }
+
+  .footer-col-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .footer-col-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+  }
+
+  .footer-col-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .footer-col-item {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .footer-col-item i {
+    margin-right: 0.5rem;
+  }
+
+  .footer-form {
+    display: flex;
+    align-items: center;
+  }
+
+  .footer-form input[type="text"] {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 3px;
+    margin-right: 1rem;
+    font-size: 0.9rem;
+    flex: 1;
+  }
+
+  .footer-form button[type="submit"] {
+    border: none;
+    border-radius: 3px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #fff;
+    padding: 1rem 0;
+  }
+
+  .footer-bottom-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+
+  .footer-bottom-item {
+    margin-right: 1rem;
+  }
+
+  .footer-bottom-item a {
+    color: #fff;
+    font-size: 0.9rem;
+    text-decoration: none;
+  }
+
+  .footer-bottom-item a:hover {
+    text-decoration: underline;
+  }
+
+  .footer-social {
+    display: flex;
+  }
+
+  .footer-social-link {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-right: 1rem;
+  }
+
+  .footer-social-link:hover {
+    color: #bbb;
+  }
+
+  /* slider */
+  .slider {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .slider-container {
+    display: flex;
+    overflow: hidden;
+  }
+
+  .slide {
+    position: relative;
+    flex: 1;
+    min-width: 100%;
+    transition: transform 0.5s ease;
+  }
+
+  .slide img {
+    width: 100%;
+    height: 80vh;
+  }
+
+  .slide-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 1rem;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .slide:hover .slide-caption {
+    opacity: 1;
+  }
+
+  .slide-caption h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+  }
+
+  .slide-caption p {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .prev-slide,
+  .next-slide {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+    padding: 1rem;
+    opacity: 0.5;
+    transition: opacity 0.5s ease;
+  }
+
+  .prev-slide:hover,
+  .next-slide:hover {
+    opacity: 1;
+  }
+
+  .prev-slide {
+    left: 0;
+  }
+
+  .next-slide {
+    right: 0;
+  }
+
+  .dots {
+    display: flex;
+    justify-content: center;
+    margin: 2vh 0;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+  }
+
+  .dot.active {
+    background-color: #333;
+  }
+
+  .logo {
+    margin-top: 0.5vh;
+    position: absolute;
+    top: 0%;
+    width: 7vw;
+    height: 5vw;
+
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  li {
+    list-style-type: none;
+  }
+
+  .news_top {
+    width: 90%;
+    height: 63vh;
+
+    margin: 0 5% 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .news_top_content {
+    width: 24%;
+    height: 100%;
+    border: solid 2px black;
+    position: relative;
+
+  }
+
+  .news_top_content img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .news_top_content a {
+    text-decoration: none;
+
+  }
+
+  .news_top_content h3 {
+    position: absolute;
+    width: 100%;
+    top: 85%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 15%;
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+    font-weight: 550;
+
+  }
+
+  .news_top_content h3:hover {
+    color: bisque;
+  }
+</style>
+
+<body>
+
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="index.html" class="navbar-brand" id="myPages">
+        <img src="pic/logo/Untitled.png" alt="logo" class="logo" />
+      </a>
+      <ul class="navbar-menu">
+        <li class="navbar-item"><a href="index.html" class="navbar-link">Home</a></li>
+        <li class="navbar-item">
+          <a href="#" class="navbar-link">Information <i class="fas fa-angle-down"></i></a>
+          <ul class="sub-menu">
+            <li class="sub-menu-item"><a href="TopHeighest.html" class="sub-menu-link">Top Heighest</a></li>
+            <li class="sub-menu-item"><a href="TopLongest.html" class="sub-menu-link">Top Longest</a></li>
+            <li class="sub-menu-item"><a href="topold.html" class="sub-menu-link">Top Oldest</a></li>
+            <li class="sub-menu-item"><a href="topmodern.html" class="sub-menu-link">Top Modern</a></li>
+          </ul>
+        </li>
+        <li class="navbar-item"><a href="gallery.html" class="navbar-link">Gallery</a></li>
+        <li class="navbar-item"><a href="Contactus.html" class="navbar-link">Contact Us</a></li>
+        <li class="navbar-item"><a href="faq.html" class="navbar-link">FAQ</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="slider">
+    <div class="slider-container">
+      <div class="slide">
+        <a href="SeriWawasanBridge.html">
+          <img src="pic/top modern/Kobe.jpg" alt="Slide 1">
+          <div class="slide-caption">
+            <h3>Seri Wawasan Bridge</h3>
+            <p>The Seri Wawasan Bridge is a longitudinally asymmetric cable‐stayed box-girder bridge with an inverted
+            </p>
+          </div>
+        </a>
+      </div>
+      <div class="slide">
+        <a href="DanyangKunshanGrandBridge.html">
+          <img src="pic/longest Bridges/Danyang–Kunshan Grand Bridge (China)/OIP.jpg" alt="Slide 2">
+          <div class="slide-caption">
+            <h3>Danyang-Kunshan Grand Bridge</h3>
+            <p>The bridge is located on the rail line between Shanghai and Nanjing in Jiangsu province. It is in the
+              Yangtze River Delta</p>
+          </div>
+        </a>
+      </div>
+      <div class="slide">
+        <a href="MillauViaduct.html">
+          <img src="pic/Millau Viaduct - 1,104 Feet/OIP (2).jpg" alt="Slide 3">
+          <div class="slide-caption">
+            <h3>Millau Viaduct</h3>
+            <p>The Millau Viaduct (French: Viaduc de Millau, IPA)</p>
+          </div>
+        </a>
+      </div>
+      <div class="slide">
+        <a href="AlcantaraBridge.html">
+          <img src="pic/cau Alancat/2.jpg" alt="Slide 4">
+          <div class="slide-caption">
+            <h3>Alancat</h3>
+            <p>The Alcantara Bridge has suffered more damage from war than from the elements over the years.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <button class="prev-slide">&#10094;</button>
+    <button class="next-slide">&#10095;</button>
+    <div class="dots"></div>
+  </div>
+  <hr>
+  <div class="news_top">
+    <div class="news_top_content">
+      <a href="DanyangKunshanGrandBridge.html">
+        <img src="pic/top/longest.jpg" alt="">
+        <h3>Danyang-Kunshan-Top Longest</h3>
+
+      </a>
+    </div>
+    <div class="news_top_content">
+      <a href="MillauViaduct.html">
+        <img src="pic/Millau Viaduct - 1,104 Feet/OIP (2).jpg" alt="">
+        <h3>Millau-Viaduct-Top Heighest</h3>
+      </a>
+    </div>
+    <div class="news_top_content">
+      <a href="AlcantaraBridge.html">
+        <img src="pic/Alcantara Bridge.jpg" alt="">
+        <h3>Alcantara-Top Oldest</h3>
+      </a>
+    </div>
+    <div class="news_top_content">
+      <a href="SeriWawasanBridge.html">
+        <img src="pic/top modern/seri-wawasan-bridge.jpg" alt="">
+        <h3>Seri-Wawasan-Top Modern</h3>
+      </a>
+    </div>
+  </div>
+  <!--</video>-->
+  <div class="clip">
+    <h3>WATCH VIDEO</h3>
+    <h4>content content content content content content content content</h4>
+    <video width="740" height="480" controls>
+      <source src="video/video9.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <hr>
+  <!--contact-->
+  <div class="top">
+    <h4 class="top_h4">- CONTACT US -</h4>
+  </div>
+  <div class="contact">
+    <div class="box">
+      <img class="box_img" src="pic/top/loc.jpg" />
+      <div class="box_title">
+        <h5>Pham Van Phuc Loc</h5>
+      </div>
+    </div><!--/item-->
+    <div class="box">
+      <img class="box_img" src="pic/top/khoa.jpg" />
+      <div class="box_title">
+        <h5>Tran Ngoc Bao Khoa</h5>
+      </div>
+    </div><!--/item-->
+    <div class="box" style="margin-right: 0px;">
+      <img class="box_img" src="pic/top/nhat.jpg" />
+      <div class="box_title">
+        <h5>Do Quang Nhat</h5>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- advertising -->
+  <div class="advertising">
+    <p class="advertising_h4"> ADVERTSING </p>
+  </div>
+  <div class="top">
+    <h4 class="top_h4">- FROM THE BLOG -</h4>
+  </div>
+  <section>
+    <div class="content">
+      <div class="left">
+        <img src="pic/top/cay cau doi.jpg" />
+        <span class="date">20-06-2023</span>
+        <h3>The Twist Gallery </h3>
+        <p>The Twist Gallery is a contemporary art gallery located in Toronto, Canada. The gallery is known for
+          its commitment to showcasing emerging and established artists from around the world who work in a
+          variety of mediums, including painting, sculpture, photography, and installation art.
+
+          The Twist Gallery was founded in 2007 by Nadia Kakridonis, a Toronto-based artist and entrepreneur
+          who wanted to create a space where artists could showcase their work and connect with a wider
+          audience. The Twist Gallery also offers a range of.</p>
+        <a href="gallery.html">see more</a>
+      </div><!--left-->
+      <div class="right">
+        <div class="over">
+          <div class="hd">
+            <div class="danh_sach">
+              <div class="tin_cau">
+                <img src="pic/Charles Bridge/5.jpg" />
+                <div class="text_new">
+                  <a href="CharlesBridge.html">Chengyang Bridge</a>
+                  <p class="txt">Throughout its history, Charles Bridge has suffered several disasters and witnessed
+                    many historic events...</p>
+                  <a href="CharlesBridge.html" class="chi_tiet"> see more >></a>
+                </div><!--text_new-->
+              </div>
+              <div class="tin_cau">
+                <img src="pic/Pingtang Bridge - 1,089 Feet/OIP (4).jpg" />
+                <div class="text_new">
+                  <a href="PingtangBridge.html">Pingtang Bridge</a>
+                  <p class="txt">he Pingtang Bridge is a bridge in Pingtang, Guizhou, China and carries the Pingtang
+                    Luodian Expressway
+                    over the deep Caodu River valley... </p>
+                  <a href="PingtangBridge.html" class="chi_tiet"> see more >></a>
+                </div><!--text_new-->
+              </div>
+              <div class="tin_cau">
+                <img src="pic/Russky Bridge - 1,053 Feet/OIP (3).jpg" />
+                <div class="text_new">
+                  <a href="RusskyBridge.html">Russky Bridge</a>
+                  <p class="txt">The Russky Bridge (Russian: Русский мост, lit.'Russian Bridge') is a cable-stayed
+                    bridge in Vladivostok,
+                    Primorsky Krai, Russia...</p>
+                  <a href="RusskyBridge.html" class="chi_tiet"> see more >></a>
+                </div><!--text_new-->
+              </div>
+            </div><!--danh_sach-->
+
+          </div><!--hd-->
+        </div><!--over-->
+      </div><!--right-->
+    </div><!--content-->
+  </section>
+  <hr>
+
+  <footer>
+    <div class="content_footer">
+      <div class="ul_">
+        <ul>
+          <li class="li_one">ABOUT US</li>
+
+          <li>FPT Digital, trực thuộc Tập đoàn FPT, là công ty cung cấp dịch vụ tư vấn lộ trình chuyển đổi số
+            giúp, doanh nghiệp từng bước xây dựng nguồn lực... </li>
+          <li><a href="#" class="read_more">Read More -> </a></li>
+        </ul>
+      </div>
+      <div class="ul_">
+        <ul>
+          <li class="li_one">CONTACT US</li>
+
+          <li>Address: 590 Cách Mạng Tháng 8, P.12, Q.10</li>
+          <li>Email: info@gmail.com</li>
+          <li>Phone: 123-456-789</li>
+          <li><a href="http://www.facebook.com/" target="_blank"><img src="pic/top/fb.png" /></a>
+            <a href="https://www.google.com/" target="_blank"><img src="pic/top/g.png" /></a>
+          </li>
+        </ul>
+      </div>
+      <div class="ul_">
+        <ul>
+          <li class="li_one">INFORMATION</li>
+
+          <li>Blog</li>
+          <li>Contact US</li>
+          <li>About us</li>
+          <li>Notification</li>
+          <li>Messager</li>
+        </ul>
+      </div>
+    </div><!--content_footer-->
+  </footer>
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+
+
+<script>
+  $(document).ready(function () {
+    $('.sub-menu').parent('li').addClass('has-child');
+  })
+
+  // VisitorCounter
+  var counterContainer = document.querySelector(".website-counter");
+  var resetButton = document.querySelector("#reset");
+  var visitCount = localStorage.getItem("page_view");
+
+  if (visitCount) {
+    visitCount = Number(visitCount) + 1;
+    localStorage.setItem("page_view", visitCount);
+  } else {
+    visitCount = 1;
+    localStorage.setItem("page_view", 1);
+  }
+
+
+  const toggleButton = document.querySelector('.navbar-toggle');
+  const navbarMenu = document.querySelector('.navbar-menu');
+
+
+  const slides = document.querySelectorAll('.slide');
+  const prevBtn = document.querySelector('.prev-slide');
+  const nextBtn = document.querySelector('.next-slide');
+  const dotsContainer = document.querySelector('.dots');
+
+  let slideIndex = 0;
+
+  // Create dots for each slide
+  slides.forEach((slide, index) => {
+    const dot = document.createElement('span');
+    dot.classList.add('dot');
+    dotsContainer.appendChild(dot);
+
+    dot.addEventListener('click', () => {
+      goToSlide(index);
+    });
+  });
+
+  const dots = document.querySelectorAll('.dot');
+
+  // Show first slide and active dot
+  showSlide(slideIndex);
+  dots[slideIndex].classList.add('active');
+
+  // Move to previous slide
+  prevBtn.addEventListener('click', () => {
+    slideIndex--;
+    if (slideIndex < 0) {
+      slideIndex = slides.length - 1;
+    }
+    showSlide(slideIndex);
+  });
+
+  // Move to next slide
+  nextBtn.addEventListener('click', () => {
+    slideIndex++;
+    if (slideIndex >= slides.length) {
+      slideIndex = 0;
+    }
+    showSlide(slideIndex);
+  });
+
+  // Show selected slide
+  function goToSlide(index) {
+    slideIndex = index;
+    showSlide(slideIndex);
+  }
+
+  // Show slide at given index
+  function showSlide(index) {
+    // Hide all slides
+    slides.forEach(slide => {
+      slide.style.transform = `translateX(-${index * 100}%)`;
+    });
+
+    // Deactivate all dots
+    dots.forEach(dot => {
+      dot.classList.remove('active');
+    });
+
+    // Activate dot for current slide
+    dots[index].classList.add('active');
+  }
+</script>

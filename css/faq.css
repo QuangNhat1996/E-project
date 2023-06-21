@@ -1,0 +1,26 @@
+.faq{
+    text-align: center;
+    margin: 1vw;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 4vw;
+   
+    
+}
+
+.cauhoi{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 5px 400px;
+    font-size: 16px;
+    width: 100%;
+    color: black;
+    text-transform: uppercase;
+    font-weight: 800;
+ 
+}
+
+.cautrl{
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+padding: 6px 420px;
+font-size: 16px;
+width: 100%;
+}

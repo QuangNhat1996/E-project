@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Contact Us</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="Team 1" />
+    <meta name="description" content="E-Project" />
+    <meta name="keywords" content="E-Project, Aptech" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <!--BOOTSTRAP-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!--FONT-->
+    <link rel="stylesheet" href="css/font.css" type="text/css" />
+    <!--CSS-->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/style-about.css" />
+    <link rel="stylesheet" href="css/form-about.css">
+    <link rel="shortcut icon" href="images/top/logo.png" type="image/png">
+    <link rel="stylesheet" type="text/css" href="css/style-index.css" />
+    <script type="text/javascript" src="js/scripts.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .main-content-about {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            margin-bottom: 20vh;
+        }
+
+        .menu-web-aboutus .menu-left a,
+        .menu-web-aboutus .menu-center a,
+        .menu-web-aboutus .menu-right a {
+            color: rgb(255, 255, 255);
+
+        }
+
+        .menu-web-aboutus {
+            background-color: #272727;
+        }
+
+        .menu-web-aboutus.scrolled {
+            background-color: rgba(80, 79, 79, 0.7);
+        }
+
+        .menu-web-aboutus.scrolled.menu-web-aboutus .menu-left a,
+        .menu-web-aboutus.scrolled.menu-web-aboutus .menu-center a,
+        .menu-web-aboutus.scrolled.menu-web-aboutus .menu-right a {
+            color: white;
+        }
+
+        .menu-web-aboutus .menu-center a:hover {
+            color: rgb(255, 253, 253);
+        }
+
+
+        .background-image-aboutus {
+            background-color: white;
+            width: 100%;
+            height: calc(100vw * 16/9);
+            max-height: 100vh;
+        }
+
+        .border-contact-aboutus {
+            position: relative;
+            top: 20vh;
+            width: 80%;
+            height: 75vh;
+            background-color: #ffffff;
+            margin-left: 10%;
+        }
+
+        .main-contact-aboutus {
+            width: 100%;
+            height: 15vh;
+            background-color: #bfc7da9e;
+            display: flex;
+            justify-content: space-evenly;
+
+        }
+
+        .contact-border {
+            width: 30%;
+            height: 100%;
+            /* background-color: #f7ef8c; */
+            display: flex;
+            align-items: center;
+
+
+        }
+
+        .aboutus-lh {
+            text-align: left;
+            font-size: 1.3vw;
+        }
+
+        .icon-contact-aboutus {
+            margin-left: 4vw;
+            margin-right: 2vw;
+            font-size: 3vw;
+            color: black;
+        }
+
+        .form-map-aboutus {
+            width: 100%;
+            height: 50vh;
+
+            display: flex;
+        }
+
+        .border-form-aboutus {
+            width: 50%;
+            height: 100%;
+
+
+        }
+
+        .map-aboutus {
+            width: 50%;
+            height: 100%;
+
+        }
+
+        .form-aboutus input[type="text"],
+        input[type="number"] {
+            width: 80%;
+            height: 4vh;
+        }
+
+        textarea {
+            width: 80%;
+            height: 10vh;
+        }
+
+        .form-aboutus {
+            width: 90%;
+            height: 100%;
+            margin-left: 15%;
+        }
+
+        .btn-aboutus {
+            width: 15vw;
+            height: 10vh;
+            font-size: 1vw;
+            font-weight: bold;
+            color: white;
+            background-color: #fb8b03;
+            margin-left: 15%;
+            align-items: end;
+        }
+
+        .aboutus-map {
+            width: 100%;
+            height: 95%;
+            margin-top: 5%;
+        }
+
+        .main-aboutus {
+
+            width: 100%;
+            height: 100vh;
+            background-color: #ffffff;
+            position: relative;
+        }
+
+        #title-member {
+            position: absolute;
+            width: 100%;
+            height: 10%;
+            text-align: center;
+            font-size: 3vw;
+            top: 2vw;
+            left: 15%;
+            width: 70%;
+            padding-top: 1.3vw;
+            border-bottom: 0.1vw solid black;
+            border-top: 0.1vw solid black;
+
+        }
+
+        #title-member span {
+            color: rgb(0, 0, 0);
+
+        }
+
+        .tag-aboutus {
+            width: 100%;
+            height: 70vh;
+            position: relative;
+            top: 7%;
+            display: flex;
+            justify-content: space-evenly;
+
+        }
+
+        .tag-aboutus-member {
+            width: 21%;
+            height: 65vh;
+            background-color: rgb(0, 0, 0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition-duration: .5s;
+            cursor: pointer;
+            border-radius: 2vw;
+        }
+
+
+        .img-aboutus-member {
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(24, 24, 24);
+            transition-duration: .5s;
+            color: rgb(155, 155, 155);
+            font-family: Whitney, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+
+        }
+
+        .img-aboutus-member img {
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .tag-aboutus-member:hover .img-aboutus-member {
+            transform: translateX(-25%) translateY(-15%);
+            transition-duration: .5s;
+        }
+
+        .content-aboutus-member {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(131, 128, 128);
+            z-index: 1;
+        }
+
+        .tag-aboutus-member:hover .content-aboutus-member {
+            box-shadow: 0.3vw 0.3vw 1vw gray;
+        }
+
+        .info-aboutus-member {
+            width: 100%;
+            height: 15%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transform: translateY(3vw);
+            justify-content: flex-end;
+            /* background-color: aliceblue; */
+            font-family: Whitney, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+            gap: 2px;
+            transition: 0.6s;
+            opacity: 0;
+
+
+        }
+
+        .name-aboutus-member {
+            margin: 0;
+            padding: 0;
+            font-size: 1.5vw;
+            font-weight: 500;
+            color: #ffffff;
+        }
+
+        .role-aboutus-member {
+            margin: 0;
+            padding: 0;
+            font-size: 1vw;
+            font-weight: 400;
+            color: #ffffff;
+            margin-bottom: 1vw;
+        }
+
+        .social-aboutus-member {
+            width: 25%;
+            height: 85%;
+            display: flex;
+            transform: translateX(10vw);
+            /* transform: translateY(-8%); */
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: rgb(14, 14, 14);
+            gap: 3vw;
+            transition: 0.5s;
+
+        }
+
+        .social-aboutus-member i {
+            font-size: 2.5vw;
+            color: #ffffff;
+            text-shadow: 0.2vw 0.2vw 0.5vw rgb(0, 0, 0);
+        }
+
+        .tag-aboutus-member:hover .social-aboutus-member {
+            transform: translateX(15.5vw);
+        }
+
+        .tag-aboutus-member:hover .info-aboutus-member {
+            transform: translate(0);
+            opacity: 1;
+
+        }
+
+        .social-aboutus-member i:hover {
+            animation: cales 0.8s;
+        }
+
+        .navbar {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .navbar-logo {
+            color: #333;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .navbar-toggle {
+            display: none;
+            cursor: pointer;
+        }
+
+        .navbar-toggle-icon {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background-color: #333;
+            margin: 5px;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .navbar-menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-item {
+            position: relative;
+        }
+
+        .navbar-link {
+            color: #333;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0 1rem;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .sub-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .sub-menu-item {
+            margin: 0;
+        }
+
+        .sub-menu-link {
+            color: #333;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0.5rem 1rem;
+            display: block;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .navbar-item:hover .sub-menu {
+            display: block;
+        }
+
+        .navbar-link:hover,
+        .sub-menu-link:hover {
+            color: #007bff;
+        }
+
+        .logo {
+            margin-top: 0.5vh;
+            position: absolute;
+            top: 0%;
+            width: 7vw;
+            height: 5vw;
+
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            list-style-type: none;
+
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-brand" id="myPages">
+                <img src="pic/logo/Untitled.png" alt="logo" class="logo" />
+            </a>
+            <ul class="navbar-menu">
+                <li class="navbar-item"><a href="index.html" class="navbar-link">Home</a></li>
+                <li class="navbar-item">
+                    <a href="#" class="navbar-link">Information <i class="fas fa-angle-down"></i></a>
+                    <ul class="sub-menu">
+                        <li class="sub-menu-item"><a href="TopHeighest.html" class="sub-menu-link">Top Heighest</a></li>
+                        <li class="sub-menu-item"><a href="TopLongest.html" class="sub-menu-link">Top Longest</a></li>
+                        <li class="sub-menu-item"><a href="topold.html" class="sub-menu-link">Top Oldest</a></li>
+                        <li class="sub-menu-item"><a href="topmodern.html" class="sub-menu-link">Top Modern</a></li>
+                    </ul>
+                </li>
+                <li class="navbar-item"><a href="gallery.html" class="navbar-link">Gallery</a></li>
+                <li class="navbar-item"><a href="Contactus.html" class="navbar-link">Contact Us</a></li>
+                <li class="navbar-item"><a href="faq.html" class="navbar-link">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+    <header>
+        <!--SIDEBAR-->
+        <h2 class="hidden">Header</h2>
+
+    </header>
+
+    <!--MAIN CONTENT-->
+    <main class="guide">
+        <h2 class="hide">Main Content</h2>
+        <section class="guide-about">
+            <br><br><br>
+            <h3 class="title-guide">- CONTACT US -</h3>
+            <hr>
+            <main class="main-aboutus">
+                <div class="tag-aboutus">
+                    <div class="tag-aboutus-member">
+                        <div class="img-aboutus-member"><img src="pic/about/Loc.png" alt=""></div>
+                        <div class="content-aboutus-member">
+                            <div class="social-aboutus-member">
+                                <a id="icon-aboutus-member" href="#github"><i
+                                        class="fa-sharp fa-regular fa-envelope"></i></a>
+                                <a id="icon-aboutus-member" href="#github"><i class="fa-solid fa-phone"></i></a>
+                                <a id="icon-aboutus-member" href="#github"><i class="fa-brands fa-facebook"></i></a>
+                                <a id="icon-aboutus-member" href="#github"><i class="fa-brands fa-instagram"></i></a>
+
+                            </div>
+                            <div class="info-aboutus-member">
+                                <p class="name-aboutus-member">Pham Van Phuc Loc</p>
+                                <p class="role-aboutus-member">Student1448357</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tag-aboutus-member">
+                        <div class="img-aboutus-member"><img src="pic/about/Nhat.png" alt=""></div>
+                        <div class="content-aboutus-member">
+                            <div class="social-aboutus-member">
+                                <a id="icon-aboutus-member" href="#github"><i
+                                        class="fa-sharp fa-regular fa-envelope"></i></a>
+                                <a id="icon-aboutus-member" href="#github"><i class="fa-solid fa-phone"></i></a>
+                                <a id="icon-aboutus-member" href="#github"><i class="fa-brands fa-facebook"></i></a>
+                                <a id="icon-aboutus-member" href="#github"><i class="fa-brands fa-instagram"></i></a>
+
+                            </div>
+                            <div class="info-aboutus-member">
+                                <p class="name-aboutus-member">Do Quang Nhat</p>
+                                <p class="role-aboutus-member">Student1457499</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tag-aboutus-member">
+                        <div class="img-aboutus-member"><img src="pic/about/Khoa.png" alt=""></div>
+                        <div class="content-aboutus-member">
+                            <div class="social-aboutus-member">
+                                <a id="icon-aboutus-member" href="#github"><i
+                                        class="fa-sharp fa-regular fa-envelope"></i></a>
+                                <a id="icon-aboutus-member" href="#github"><i class="fa-solid fa-phone"></i></a>
+                                <a id="icon-aboutus-member" href="#github"><i class="fa-brands fa-facebook"></i></a>
+                                <a id="icon-aboutus-member" href="#github"><i class="fa-brands fa-instagram"></i></a>
+
+                            </div>
+                            <div class="info-aboutus-member">
+                                <p class="name-aboutus-member">Tran Ngoc Bao Khoa</p>
+                                <p class="role-aboutus-member">Student1021979</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </section>
+        <!--comment-->
+        <section class="guide-comment">
+            <h3 class="title-guide">Subscribe to our newsletter</h3>
+
+            <br><br>
+            <div>
+                <form action="" method="get" onsubmit="confirm()">
+                    <input type="text" name="name" id="name" placeholder="Your Name" required>
+                    <br><br>
+                    <input type="text" name="mail" id="mail" placeholder="Your email" required>
+                    <br><br>
+                    <label for="">Comment:</label>
+                    <br>
+                    <textarea rows="10" placeholder="Write some thing..."></textarea>
+                    <br><br>
+                    <button type="submit">Send message</button>
+                </form>
+            </div>
+
+
+        </section>
+        <footer>
+            <div class="content_footer">
+                <div class="ul_">
+                    <ul>
+                        <li class="li_one">ABOUT US</li>
+
+                        <li>FPT Digital, trực thuộc Tập đoàn FPT, là công ty cung cấp dịch vụ tư vấn lộ trình chuyển đổi
+                            số
+                            giúp, doanh nghiệp từng bước xây dựng nguồn lực... </li>
+                        <li><a href="#" class="read_more">Read More -> </a></li>
+                    </ul>
+                </div>
+                <div class="ul_">
+                    <ul>
+                        <li class="li_one">CONTACT US</li>
+
+                        <li>Address: 590 Cách Mạng Tháng 8, P.12, Q.10</li>
+                        <li>Email: info@gmail.com</li>
+                        <li>Phone: 123-456-789</li>
+                        <li><a href="http://www.facebook.com/" target="_blank"><img src="pic/top/fb.png" /></a>
+                            <a href="https://www.google.com/" target="_blank"><img src="pic/top/g.png" /></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="ul_">
+                    <ul>
+                        <li class="li_one">INFORMATION</li>
+
+                        <li>Blog</li>
+                        <li>Contact US</li>
+                        <li>About us</li>
+                        <li>Notification</li>
+                        <li>Messager</li>
+                    </ul>
+                </div>
+            </div><!--content_footer-->
+        </footer>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+</body>
+<script>
+    function confirm() {
+        alert('Sending message is succesfully....')
+    }
+</script>
+
+</html>

@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.tong {
+    display: flex;
+    width: 90%;
+    height: 30vh;
+}
+
+.hinh1 {
+    width: 40%;
+    height: 100%;
+    margin-left: 2.8vw;
+}
+
+.hinh1 img {
+    width: 80%;
+    height: 100%;
+    margin-left: 2vw;
+}
+
+.ct {
+    margin-left: 2vw;
+    width: 80%;
+}
+
+.chu1 {
+    width: 70%;
+    font-size: 1.3vw;
+    height: 8%;
+    padding-left: 4vw;
+    text-align: justify;
+}
+
+h2 {
+    text-align: center;
+    border-bottom: 0.2vw solid black;
+    border-top: 0.2vw solid black;
+    margin: 2vw;
+    color: gray;
+}
+
+.slide {
+    width: 45vw;
+    margin-left: 40vw;
+    overflow: hidden;
+    position: relative;
+    margin-top: 10vh;
+}
+
+.slider {
+    margin-top: 10vh;
+    width: 150vw;
+    height: 55vh;
+}
+
+.slider img {
+    width: 45vw;
+    height: 100%;
+    float: left;
+    border-radius: 5%;
+}
+
+.dieuhuong {
+    font-size: 3vw;
+    color: white;
+    top: 55%;
+    position: absolute;
+    margin: 0 4%;
+    opacity: 0.5;
+
+}
+
+.dieuhuong i:last-child {
+    position: relative;
+    left: 35.6vw;
+}
+
+article {
+    height: 3vh;
+    padding-bottom: 1vh;
+}

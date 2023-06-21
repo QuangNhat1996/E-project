@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chengyang Bridge</title>
+    <link rel="stylesheet" href="css/oldbridge.css">
+    <link rel="stylesheet" href="fontawesome-free-6.4.0-web/fontawesome-free-6.4.0-web/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style-index.css" />
+    <script type="text/javascript" src="js/scripts.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style-index.css" />
+    <script type="text/javascript" src="js/scripts.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bridge.css">
+
+    <style>
+        .size {
+            height: 5vh;
+        }
+
+        .navbar {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .navbar-logo {
+            color: #333;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .navbar-toggle {
+            display: none;
+            cursor: pointer;
+        }
+
+        .navbar-toggle-icon {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background-color: #333;
+            margin: 5px;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .navbar-menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+
+
+        .navbar-item {
+            position: relative;
+        }
+
+        .navbar-link {
+            color: #333;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0 1rem;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .sub-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .sub-menu-item {
+            margin: 0;
+        }
+
+
+
+        .logo {
+            margin-top: 0.5vh;
+            position: absolute;
+            top: 0%;
+            width: 7vw;
+            height: 5vw;
+
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        .but {
+
+            margin-top: 15vh;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-brand" id="myPages">
+                <img src="pic/logo/Untitled.png" alt="logo" class="logo" />
+            </a>
+            <ul class="navbar-menu">
+                <li class="navbar-item"><a href="index.html" class="navbar-link">Home</a></li>
+                <li class="navbar-item">
+                    <a href="TopHeighest.html" class="navbar-link">Information </a>
+
+                </li>
+                <li class="navbar-item"><a href="gallery.html" class="navbar-link">Gallery</a></li>
+                <li class="navbar-item"><a href="Contactus.html" class="navbar-link">Contact Us</a></li>
+                <li class="navbar-item"><a href="faq.html" class="navbar-link">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+    <br><br><br>
+    <h2>Chengyang Bridge</h2>
+    <div class="tong">
+        <div class="hinh1">
+            <img src="pic/Alcantara Bridge.jpg">
+            <div class="ct">
+                <article>
+                    <b>Finished</b>
+                    <p>1912</p>
+                </article>
+                <hr>
+                <article>
+                    <b>Length</b>
+                    <p>64.4m (211 ft)</p>
+                </article>
+                <hr>
+                <article>
+                    <b>Height</b>
+                    <p>10m (33 ft)</p>
+                </article>
+                <hr>
+                <article>
+                    <b>Continent</b>
+                    <p>Asian</p>
+                    <hr>
+                    <b>Location</b>
+                    <p>China</p>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3214.905847881525!2d120.37063507574715!3d36.31458997238965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35966e4c124894bd%3A0x58eb118c2ae0d645!2sCheng%20Yang%20Qiao%2C%20Cheng%20Yang%20Qu%2C%20Qing%20Dao%20Shi%2C%20Shan%20Dong%20Sheng%2C%20Trung%20Qu%E1%BB%91c%2C%20266000!5e0!3m2!1svi!2s!4v1686832176353!5m2!1svi!2s"
+                        width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </article>
+            </div>
+        </div>
+        <div class="chu1">
+            <p>Part of the bridge complex is the octagonal 34.5 m (113 ft) tall (from ground) Wasserturm, which
+                translates to "water tower," in the sense of 'tower standing in the water.' The tower pre-dated the
+                bridge by about 30 years. Over the centuries, the tower has been used as a prison, torture chamber, and
+                later a municipal archive as well as a local treasury. Today, the tower is closed to the public,
+                although it houses a local artillery association and a tourist gift shop.
+                The bridge itself was originally built c.1365 as part of Lucerne's fortifications. It linked the old
+                town on the right bank of the Reuss to the new town on the left bank, securing the town from attack from
+                the south (i.e. from the lake). The bridge was initially over 270 metres (890 ft) long, although
+                numerous shortenings over the years and river bank replenishments mean the bridge now totals only 204.7
+                metres (672 ft) long.
+            </p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="dieuhuong">
+            <i class="fa fa-chevron-circle-left" onclick="Back()"></i>
+            <i class="fa fa-chevron-circle-right" onclick="Next()"></i>
+        </div>
+        <div class="slider">
+            <img src="pic/chengyangBridge/7.webp">
+            <img src="pic/chengyangBridge/8.jpg">
+            <img src="pic/chengyangBridge/9.jpg">
+        </div>
+    </div>
+    <br><br><br><br><br>
+    <footer>
+        <div class="content_footer">
+            <div class="ul_">
+                <ul>
+                    <li class="li_one">ABOUT US</li>
+
+                    <li>FPT Digital, trực thuộc Tập đoàn FPT, là công ty cung cấp dịch vụ tư vấn lộ trình chuyển đổi số
+                        giúp, doanh nghiệp từng bước xây dựng nguồn lực... </li>
+                    <li><a href="#" class="read_more">Read More -> </a></li>
+                </ul>
+            </div>
+            <div class="ul_">
+                <ul>
+                    <li class="li_one">CONTACT US</li>
+
+                    <li>Address: 590 Cách Mạng Tháng 8, P.12, Q.10</li>
+                    <li>Email: info@gmail.com</li>
+                    <li>Phone: 123-456-789</li>
+                    <li><a href="http://www.facebook.com/" target="_blank"><img src="pic/top/fb.png" /></a>
+                        <a href="https://www.google.com/" target="_blank"><img src="pic/top/g.png" /></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="ul_">
+                <ul>
+                    <li class="li_one">INFORMATION</li>
+
+                    <li>Blog</li>
+                    <li>Contact US</li>
+                    <li>About us</li>
+                    <li>Notification</li>
+                    <li>Messager</li>
+                </ul>
+            </div>
+        </div><!--content_footer-->
+    </footer>
+</body>
+<script src="js/slider.js"></script>
+
+</html>
