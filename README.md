@@ -17,7 +17,7 @@ Project title: AMAZING BRIDGE
      Pham Van Phuc Loc   Student1448357
 ============================
 
-eProject documentation at 
+eProject documentation at https://github.com/QuangNhat1996/E-project/tree/develop/Document
 
 ============================
 
